@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
@@ -8,6 +8,7 @@ import { User } from '../model/user';
 export class UserService {
 
   private usersUrl: string = '';
+  private searchCondition: User = new User;
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*'
@@ -21,7 +22,10 @@ export class UserService {
   public findAll(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl);
   }
-
+  public findByCondition(searchCondition: User): Observable<User[]> {
+    const params = new HttpParams({fromString: 'name=term'});
+    return this.http.get<User[]>(this.usersUrl, {responseType: 'json', params});
+  }
   public save(user: User) {
     return this.http.post<User>(this.usersUrl, user);
   }

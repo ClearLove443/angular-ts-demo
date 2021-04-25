@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
     { field: 'nickName' },
     { field: 'userSex'}
 ];
-
+user: User = new User;
 // rowData = [
 //     { make: 'Toyota', model: 'Celica', price: 35000 },
 //     { make: 'Ford', model: 'Mondeo', price: 32000 },
@@ -23,9 +23,12 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+
+  }
+  searchByconditon(): void {
+    // tslint:disable-next-line: deprecation
     this.userService.findAll().subscribe(data => {
       this.users = data;
     });
-  }
-
+   }
 }
