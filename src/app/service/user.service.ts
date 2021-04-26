@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { User } from '../model/user';
 @Injectable({
   providedIn: 'root'
@@ -21,21 +22,28 @@ export class UserService {
   }
 
   public findAll(): Observable<User[]> {
-    this.apiUrl = '/api/user/getAllUser'
-    let url = this.baseUrl + this.apiUrl;
+    this.apiUrl = '/api/user/getAllUser';
+    const url = this.baseUrl + this.apiUrl;
     return this.http.get<User[]>(url);
   }
-  public searchByCondition(searchByCondition: User): Observable<User[]> {
-    const params = new HttpParams({ fromString: 'name=term' });
-    this.apiUrl = ''
-    let url = this.baseUrl + this.apiUrl;
-    return this.http.get<User[]>(url, {responseType: 'json', params});
+  public searchByCondition(data: any): Observable<any> {
+    this.apiUrl = '/api/user/getUserByCondition';
+    const url = this.baseUrl + this.apiUrl;
+    return this.http.get(url, { params: data }).pipe(tap((res: any) => console.log(res)),
+      map((res: any) => res),
+      tap((res: any) => console.log(res))
+    );
   }
-  public save(user: User) {
-    this.apiUrl = '/api/user/postOneUser'
-    let url = this.baseUrl + this.apiUrl;
+  public save(data: any): Observable<any>  {
+    this.apiUrl = '/api/user/postOneUser';
+    const url = this.baseUrl + this.apiUrl;
     console.log(url);
-    console.log(user);
-    return this.http.post<User>(url, user);
+    console.log(data);
+    // return this.http.post<User>(url, data);
+    return this.http.post(url, data).pipe(
+      map((res: any) => {
+          return res;
+      })
+  );
   }
 }

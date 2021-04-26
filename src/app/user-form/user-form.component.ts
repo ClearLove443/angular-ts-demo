@@ -19,6 +19,13 @@ export class UserFormComponent {
     this.userService.save(this.user).subscribe(result => this.gotoUserList());
   }
 
+  save(): void {
+    console.log(this.user.id);
+    this.userService.save(this.user).subscribe(val => {
+      console.log(val);
+    });
+  }
+  
   gotoUserList() {
     this.router.navigate(['/users']);
   }

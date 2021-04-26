@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
     { field: 'nickName' },
     { field: 'userSex'}
 ];
-user: User = new User;
+user: User = new User();
 // rowData = [
 //     { make: 'Toyota', model: 'Celica', price: 35000 },
 //     { make: 'Ford', model: 'Mondeo', price: 32000 },
@@ -26,15 +26,11 @@ user: User = new User;
 
   }
   searchByCondition(): void {
-    // tslint:disable-next-line: deprecation
-    this.userService.findAll().subscribe(data => {
-      this.users = data;
+
+    this.userService.searchByCondition(this.user).subscribe(val => {
+      console.log(val);
+      this.users = val;
     });
-    this.userService.save(this.user);
   }
-  save(): void {
-    console.log(this.user.id);
-    // tslint:disable-next-line: deprecation
-    this.userService.save(this.user);
-  }
+
 }
