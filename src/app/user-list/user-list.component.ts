@@ -25,10 +25,16 @@ user: User = new User;
   ngOnInit(): void {
 
   }
-  searchByconditon(): void {
+  searchByCondition(): void {
     // tslint:disable-next-line: deprecation
     this.userService.findAll().subscribe(data => {
       this.users = data;
     });
-   }
+    this.userService.save(this.user);
+  }
+  save(): void {
+    console.log(this.user.id);
+    // tslint:disable-next-line: deprecation
+    this.userService.save(this.user);
+  }
 }

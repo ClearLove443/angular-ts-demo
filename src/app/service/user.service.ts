@@ -7,7 +7,8 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-  private usersUrl: string = '';
+  private baseUrl: string = '';
+  private apiUrl: string = '';
   private searchCondition: User = new User;
   httpOptions = {
     headers: new HttpHeaders({
@@ -16,17 +17,25 @@ export class UserService {
     withCredentials: true,
   };
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8090/api/user/getAllUser';
+    this.baseUrl = 'http://localhost:9090';
   }
 
   public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+    this.apiUrl = '/api/user/getAllUser'
+    let url = this.baseUrl + this.apiUrl;
+    return this.http.get<User[]>(url);
   }
-  public findByCondition(searchCondition: User): Observable<User[]> {
-    const params = new HttpParams({fromString: 'name=term'});
-    return this.http.get<User[]>(this.usersUrl, {responseType: 'json', params});
+  public searchByCondition(searchByCondition: User): Observable<User[]> {
+    const params = new HttpParams({ fromString: 'name=term' });
+    this.apiUrl = ''
+    let url = this.baseUrl + this.apiUrl;
+    return this.http.get<User[]>(url, {responseType: 'json', params});
   }
   public save(user: User) {
-    return this.http.post<User>(this.usersUrl, user);
+    this.apiUrl = '/api/user/postOneUser'
+    let url = this.baseUrl + this.apiUrl;
+    console.log(url);
+    console.log(user);
+    return this.http.post<User>(url, user);
   }
 }

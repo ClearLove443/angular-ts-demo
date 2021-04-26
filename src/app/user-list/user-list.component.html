@@ -1,22 +1,41 @@
 <p>search-condition works!</p>
 <div>
-    <label>ID:
-    </label>
-    <input #id [(ngModel)]=user.id />
+    <tr>
+        <td width="120px">
+            <li>ID:
+            </li>
+        </td>
+        <td>
+            <input #id [(ngModel)]=user.id />
+        </td>
+    </tr>
 </div>
 <div>
-    <label>nickName:
-    </label>
-    <input #nickName [(ngModel)]=user.nickName />
+    <tr>
+        <td width="120px">
+            <li>nickName:
+            </li>
+        </td>
+        <td>
+            <input #id [(ngModel)]=user.nickName />
+        </td>
+    </tr>
 </div>
 <div>
-    <label>userSex:
-    </label>
-    <input #userSex [(ngModel)]=user.userSex />
+    <tr>
+        <td width="120px">
+            <li>userSex:
+            </li>
+        </td>
+        <td>
+            <input #id [(ngModel)]=user.userSex />
+        </td>
+    </tr>
 </div>
 <!-- <app-search-condition></app-search-condition> -->
 <p>user-list works!</p>
-<ag-grid-angular style="width: 700px; height: 500px;" class="ag-theme-alpine" [rowData]="users"
+<ag-grid-angular style="width: 700px; height: 250px;" class="ag-theme-alpine" [rowData]="users"
     [columnDefs]="columnDefs">
 </ag-grid-angular>
-<div><button (click)="searchByconditon()"> 檢索</button></div>
+<div><button (click)="searchByCondition()"> 檢索</button></div>
+<div><button (click)="save()"> 登录</button></div>
