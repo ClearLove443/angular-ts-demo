@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserFormComponent } from '@app/user-form/user-form.component';
 import { User } from '../model/user';
 import { UserService } from '../service/user.service';
 
@@ -13,24 +14,27 @@ export class UserListComponent implements OnInit {
     { field: 'id' },
     { field: 'nickName' },
     { field: 'userSex'}
-];
-user: User = new User();
-// rowData = [
+  ];
+  // rowData = [
 //     { make: 'Toyota', model: 'Celica', price: 35000 },
 //     { make: 'Ford', model: 'Mondeo', price: 32000 },
 //     { make: 'Porsche', model: 'Boxter', price: 72000 }
 // ];
+
+  user: User | undefined;
+  @ViewChild('child1')
+  child1: UserFormComponent | undefined;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
 
   }
   searchByCondition(): void {
-
+    this.user = this.child1?.user;
     this.userService.searchByCondition(this.user).subscribe(val => {
       console.log(val);
       this.users = val;
     });
   }
-
 }

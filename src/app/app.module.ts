@@ -11,7 +11,7 @@ import { UserService } from './service/user.service';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserComponent } from './user/user.component';
-import { SearchConditionComponent } from './search-condition/search-condition.component';
+import { UserInsertComponent } from './user-insert/user-insert.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,7 @@ import { SearchConditionComponent } from './search-condition/search-condition.co
     UserListComponent,
     UserFormComponent,
     UserComponent,
-    SearchConditionComponent
+    UserInsertComponent
   ],
   imports: [
     BrowserModule,

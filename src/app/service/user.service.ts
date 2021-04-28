@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -8,18 +8,10 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-  private baseUrl: string = '';
+  private baseUrl: string = 'http://localhost:9090';
   private apiUrl: string = '';
-  private searchCondition: User = new User;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*'
-    }),
-    withCredentials: true,
-  };
-  constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:9090';
-  }
+
+  constructor(private http: HttpClient) {}
 
   public findAll(): Observable<User[]> {
     this.apiUrl = '/api/user/getAllUser';
