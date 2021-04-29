@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DemosComponent } from './demos.component';
+import { CommonInsertComponent } from './common-insert.component';
 
-describe('DemosComponent', () => {
-  let component: DemosComponent;
-  let fixture: ComponentFixture<DemosComponent>;
+describe('UserInsertComponent', () => {
+  let component: CommonInsertComponent;
+  let fixture: ComponentFixture<CommonInsertComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DemosComponent ]
+      declarations: [ CommonInsertComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DemosComponent);
+    fixture = TestBed.createComponent(CommonInsertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
