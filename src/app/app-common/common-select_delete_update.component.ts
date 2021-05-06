@@ -75,12 +75,11 @@ export class CommonSelectDeleteUpdateComponent implements OnInit {
     const selectedData = this.commonService.getSelectedRows(this.agGrid)[0];
     this.commonService.updMoreRows(selectedData).subscribe(val => {
       if (val > 0) {
-        this.searchByCondition();
+        // this.searchByCondition();
         alert(`成功更新了${val}条数据`);
       } else {
         alert(`更新失败`);
       }
-      // val > 0 ? alert(`成功删除了${val}条数据`) : alert(`删除失败`);
-    });
+    },(error: Error) =>  alert(error.message));
   }
 }
