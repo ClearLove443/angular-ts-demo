@@ -1,0 +1,47 @@
+<p>divisions-select works!</p>
+
+<div>
+    <h1>选择省：</h1>
+    <select #provinceCode [(ngModel)]=param.provinceCode (change)="changeDivisions1()">
+        <option></option>
+        <option value={{divisions.provinceCode}} *ngFor="let divisions of results1">
+            {{divisions.provinceName}}
+        </option>
+    </select>
+</div>
+<div *ngIf="!!param.provinceCode">
+    <h2>选择市：</h2>
+    <select #cityCode [(ngModel)]=param.cityCode (change)="changeDivisions2()">
+        <option></option>
+        <option value={{divisions.cityCode}} *ngFor="let divisions of results2">
+            {{divisions.cityName}}
+        </option>
+    </select>
+</div>
+<div *ngIf="!!param.cityCode">
+    <h3>选择区：</h3>
+    <select #areaCode [(ngModel)]=param.areaCode (change)="changeDivisions3()">
+        <option></option>
+        <option value={{divisions.areaCode}} *ngFor="let divisions of results3">
+            {{divisions.areaName}}
+        </option>
+    </select>
+</div>
+<div *ngIf="!!param.areaCode">
+    <h4>选择街：</h4>
+    <select #streetCode [(ngModel)]=param.streetCode (change)="changeDivisions4()">
+        <option></option>
+        <option value={{divisions.streetCode}} *ngFor="let divisions of results4">
+            {{divisions.streetName}}
+        </option>
+    </select>
+</div>
+<div *ngIf="!!param.streetCode">
+    <h5>选择社区：</h5>
+    <select #villageCode [(ngModel)]=param.villageCode>
+        <option></option>
+        <option value={{divisions.villageCode}} *ngFor="let divisions of results5">
+            {{divisions.villageName}}
+        </option>
+    </select>
+</div>

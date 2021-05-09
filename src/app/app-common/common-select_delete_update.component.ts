@@ -9,6 +9,17 @@ import { AgGridAngular } from 'ag-grid-angular';
   styleUrls: ['./common-select_delete_update.component.css']
 })
 export class CommonSelectDeleteUpdateComponent implements OnInit {
+
+  rowData!: any;
+  defaultColDef!: any;
+  columnDefs = [
+    { field: 'id', sortable: true, checkboxSelection: true },
+    { field: 'nickName' },
+    { field: 'userSex' }
+  ];
+  form!: any;
+  @ViewChild('agGrid') agGrid!: AgGridAngular;
+
   constructor(private commonService: CommonService, public service: PcServiceService) {
 
     this.defaultColDef = {
@@ -23,15 +34,6 @@ export class CommonSelectDeleteUpdateComponent implements OnInit {
       this.form = text;
     });
   }
-  rowData!: any;
-  defaultColDef!: any;
-  columnDefs = [
-    { field: 'id', sortable: true, checkboxSelection: true },
-    { field: 'nickName' },
-    { field: 'userSex' }
-  ];
-  form!: any;
-  @ViewChild('agGrid') agGrid!: AgGridAngular;
 
   ageCellRendererFunc(params: any): string {
     params.$scope.ageClicked = this.ageClicked;

@@ -12,6 +12,8 @@ import { UserInsertComponent } from './user/user-insert/user-insert.component';
 import { CommonInsertComponent } from './app-common/common-insert.component';
 import { PcServiceService } from './service/PcServiceService';
 import { CommonSelectDeleteUpdateComponent } from './app-common/common-select_delete_update.component';
+import { ProvinceComponent } from './province/province.component';
+import { DivisionsSelectComponent } from './divisions-select/divisions-select.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { CommonSelectDeleteUpdateComponent } from './app-common/common-select_de
     UserFormComponent,
     UserInsertComponent,
     CommonInsertComponent,
-    CommonSelectDeleteUpdateComponent
+    CommonSelectDeleteUpdateComponent,
+    ProvinceComponent,
+    DivisionsSelectComponent
   ],
   imports: [
     BrowserModule,
