@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DivisionsSelectComponent } from './divisions-select/divisions-select.component';
+import { DivisionsSelect2Component } from './divisions-select2/divisions-select2.component';
 import { ProvinceComponent } from './province/province.component';
 import { UserInsertComponent } from './user/user-insert/user-insert.component';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'adduser', component: UserInsertComponent },
   { path: 'divisions', component: ProvinceComponent },
   { path: 'divisionsSelect', component: DivisionsSelectComponent },
+  { path: 'divisionsSelect2', component: DivisionsSelect2Component },
   // { path: ':provinceCode', component: ProvinceComponent },
   // { path: ':provinceCode/:city.code', component: ProvinceComponent },
   { path: ':divisions.provinceCode', component: ProvinceComponent },

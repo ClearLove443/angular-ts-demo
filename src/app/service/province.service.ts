@@ -39,4 +39,14 @@ export class ProvinceService {
       })
     );
   }
+
+  public getProvinceCityArea(data: any): Observable<any> {
+    this.apiUrl = '/api/province/getProvinceCityArea';
+    const url = this.baseUrl + this.apiUrl;
+    return this.http.get(url, { params: data }).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
 }

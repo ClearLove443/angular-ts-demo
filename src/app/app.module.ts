@@ -14,6 +14,7 @@ import { PcServiceService } from './service/PcServiceService';
 import { CommonSelectDeleteUpdateComponent } from './app-common/common-select_delete_update.component';
 import { ProvinceComponent } from './province/province.component';
 import { DivisionsSelectComponent } from './divisions-select/divisions-select.component';
+import { DivisionsSelect2Component } from './divisions-select2/divisions-select2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { DivisionsSelectComponent } from './divisions-select/divisions-select.co
     CommonInsertComponent,
     CommonSelectDeleteUpdateComponent,
     ProvinceComponent,
-    DivisionsSelectComponent
+    DivisionsSelectComponent,
+    DivisionsSelect2Component
   ],
   imports: [
     BrowserModule,

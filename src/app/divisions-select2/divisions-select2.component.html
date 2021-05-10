@@ -1,0 +1,31 @@
+<p>divisions-select2 works!</p>
+
+<div class="form-group ">
+    <label for="area" class="col-md-3 col-sm-4 control-label"><strong class="text-inverse">* </strong>所在地区：</label>
+    <div class="row checkbox">
+        <div class="col-md-3">
+            <select  #provinceCode class="form-control" [(ngModel)]=param.provinceCode (change)="changeDivisions1()">
+                <option value="">省</option>
+                <option value={{divisions.provinceCode}} *ngFor="let divisions of division">
+                    {{divisions.provinceName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3 ">
+            <select #cityCode class="form-control" [(ngModel)]=param.cityCode (change)="changeDivisions2()">
+                <option value="">市</option>
+                <option value={{city.cityCode}} *ngFor="let city of citys">
+                    {{city.cityName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select #areaCode class="form-control" [(ngModel)]=param.areaCode>
+                <option value="">区</option>
+                <option value={{area.areaCode}} *ngFor="let area of areas">
+                    {{area.areaName}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
