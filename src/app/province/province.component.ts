@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { City } from '@app/model/City';
 import { Divisions } from '@app/model/Divisions';
-import { Province } from '@app/model/province';
 import { ProvinceService } from '@app/service/province.service';
 
 @Component({
@@ -17,7 +15,9 @@ export class ProvinceComponent implements OnInit {
   // provinceCode!: string;
   // cityCode!: string;
   param: Divisions = new Divisions();
+  param2: Divisions = new Divisions();
   results!: Divisions[];
+  currentProduct!: string;
   constructor(private provinceService: ProvinceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -56,5 +56,8 @@ export class ProvinceComponent implements OnInit {
     this.provinceService.getDivisions(this.param).subscribe(val => {
       this.results = val;
     });
+  }
+  provinceClick(provinceCode:any): void {
+    window.open(`/${provinceCode}`,'cityDetail','width=1402,height=685')
   }
 }

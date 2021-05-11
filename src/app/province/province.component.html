@@ -9,24 +9,35 @@
 </div> -->
 <div>统计用区划代码 -名称</div>
 <div *ngFor="let divisions of results">
-    <div *ngIf="!!divisions.provinceCode && !divisions.cityCode"><a routerLink="/{{divisions.provinceCode}}"
-            class="btn btn-info">
-            {{divisions.provinceCode}} -
-            {{divisions.provinceName}}</a></div>
-    <div *ngIf="!!divisions.cityCode  && !divisions.areaCode"><a
-            routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}" class="btn btn-info">
-            {{divisions.cityCode}} -
-            {{divisions.cityName}}</a></div>
-    <div *ngIf="!!divisions.areaCode&& !divisions.streetCode"><a
-            routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}/{{divisions.areaCode}}" class="btn btn-info">
-            {{divisions.areaCode}} -
-            {{divisions.areaName}}</a></div>
-    <div *ngIf="!!divisions.streetCode && !divisions.villageCode"><a
-            routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}/{{divisions.areaCode}}/{{divisions.streetCode}}"
-            class="btn btn-info">
-            {{divisions.streetCode}} -
-            {{divisions.streetName}}</a></div>
-    <div *ngIf="!!divisions.villageCode">
-        {{divisions.villageCode}} -
-        {{divisions.villageName}}</div>
+        <!-- <div *ngIf="!!divisions.provinceCode && !divisions.cityCode"><a routerLink="/{{divisions.provinceCode}}"
+                         class="btn btn-info">
+                        {{divisions.provinceCode}} -
+                        {{divisions.provinceName}}</a></div> -->
+        <!-- <div *ngIf="!!divisions.provinceCode && !divisions.cityCode"><a routerLink="/{{divisions.provinceCode}}"
+                        target="_blank" class="btn btn-info">
+                        {{divisions.provinceCode}} -
+                        {{divisions.provinceName}}</a></div> -->
+        <div *ngIf="!!divisions.provinceCode && !divisions.cityCode" (click)="provinceClick(divisions.provinceCode)"><a
+                        class="btn btn-info">
+                        {{divisions.provinceCode}} -
+                        {{divisions.provinceName}}</a>
+                <ng-template #provinceCode>Hello,<b>{{divisions.provinceCode}}</b>!</ng-template>
+        </div>
+        <div *ngIf="!!divisions.cityCode  && !divisions.areaCode"><a
+                        routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}" class="btn btn-info">
+                        {{divisions.cityCode}} -
+                        {{divisions.cityName}}</a></div>
+        <div *ngIf="!!divisions.areaCode&& !divisions.streetCode"><a
+                        routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}/{{divisions.areaCode}}"
+                        class="btn btn-info">
+                        {{divisions.areaCode}} -
+                        {{divisions.areaName}}</a></div>
+        <div *ngIf="!!divisions.streetCode && !divisions.villageCode"><a
+                        routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}/{{divisions.areaCode}}/{{divisions.streetCode}}"
+                        class="btn btn-info">
+                        {{divisions.streetCode}} -
+                        {{divisions.streetName}}</a></div>
+        <div *ngIf="!!divisions.villageCode">
+                {{divisions.villageCode}} -
+                {{divisions.villageName}}</div>
 </div>
