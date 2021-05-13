@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 // import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+  
+  constructor(private menu: MenuController) { }
   // constructor(private menu: MenuController) { }
 
   // openFirst() {
@@ -22,4 +25,5 @@ export class AppComponent {
   //   this.menu.enable(true, 'custom');
   //   this.menu.open('custom');
   // }  
+ 
 }

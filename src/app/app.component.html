@@ -1,21 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item"><a routerLink="user/search-delete-updateusers"
-                class="btn btn-info">Search_Delete_Update
-                Users</a></li>
-            <li class="list-inline-item"><a routerLink="user/adduser" class="btn btn-info">Insert User</a></li>
-            <li class="list-inline-item"><a routerLink="divisions/divisions" class="btn btn-info">Divisions</a></li>
-            <li class="list-inline-item"><a routerLink="divisions/divisionsSelect"
-                class="btn btn-info">DivisionsSelect</a></li>
-          </ul>
-        </div>
-      </div>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-router-outlet id="main">
+        <ion-list>
+          <ion-item>
+            <ion-button routerLink=""> home</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-button routerLink="user/search-delete-updateusers"> Search</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-button routerLink="user/adduser"> Insert</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-button routerLink="divisions/divisions"> Divisions</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-button routerLink="divisions/divisionsSelect"> DivisionsSelect</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-router-outlet>
+    </ion-content>
+  </ion-menu>
+  <router-outlet></router-outlet>
+</ion-app>
