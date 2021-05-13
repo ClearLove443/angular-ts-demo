@@ -23,17 +23,15 @@
                         {{divisions.provinceName}}</a>
                 <ng-template #provinceCode>Hello,<b>{{divisions.provinceCode}}</b>!</ng-template>
         </div>
-        <div *ngIf="!!divisions.cityCode  && !divisions.areaCode"><a
-                        routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}" class="btn btn-info">
+        <div *ngIf="!!divisions.cityCode  && !divisions.areaCode"><a routerLink="{{divisions.cityCode}}"
+                        class="btn btn-info">
                         {{divisions.cityCode}} -
                         {{divisions.cityName}}</a></div>
-        <div *ngIf="!!divisions.areaCode&& !divisions.streetCode"><a
-                        routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}/{{divisions.areaCode}}"
+        <div *ngIf="!!divisions.areaCode&& !divisions.streetCode"><a routerLink="{{divisions.areaCode}}"
                         class="btn btn-info">
                         {{divisions.areaCode}} -
                         {{divisions.areaName}}</a></div>
-        <div *ngIf="!!divisions.streetCode && !divisions.villageCode"><a
-                        routerLink="/{{divisions.provinceCode}}/{{divisions.cityCode}}/{{divisions.areaCode}}/{{divisions.streetCode}}"
+        <div *ngIf="!!divisions.streetCode && !divisions.villageCode"><a routerLink="{{divisions.streetCode}}"
                         class="btn btn-info">
                         {{divisions.streetCode}} -
                         {{divisions.streetName}}</a></div>

@@ -58,6 +58,6 @@ export class ProvinceComponent implements OnInit {
     });
   }
   provinceClick(provinceCode:any): void {
-    window.open(`/${provinceCode}`,'cityDetail','width=1402,height=685')
+    window.open(`divisions/${provinceCode}`,'cityDetail','width=1402,height=685')
   }
 }

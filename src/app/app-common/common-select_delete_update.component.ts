@@ -12,6 +12,9 @@ export class CommonSelectDeleteUpdateComponent implements OnInit {
 
   rowData!: any;
   defaultColDef!: any;
+  gridOptions = {
+    onRowClicked: (event: any) => console.log('A row was clicked'),
+  };
   columnDefs = [
     { field: 'id', sortable: true, checkboxSelection: true },
     { field: 'nickName' },

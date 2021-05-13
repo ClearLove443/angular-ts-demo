@@ -1,38 +1,18 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonService } from './service/common.service';
-import { UserFormComponent } from './user/user-form/user-form.component';
-import { UserListComponent } from './user/user-list/user-list.component';
-import { UserInsertComponent } from './user/user-insert/user-insert.component';
-import { CommonInsertComponent } from './app-common/common-insert.component';
 import { PcServiceService } from './service/PcServiceService';
-import { CommonSelectDeleteUpdateComponent } from './app-common/common-select_delete_update.component';
-import { ProvinceComponent } from './province/province.component';
-import { DivisionsSelectComponent } from './divisions-select/divisions-select.component';
-import { DivisionsSelect2Component } from './divisions-select2/divisions-select2.component';
 @NgModule({
   declarations: [
-    AppComponent,
-    UserListComponent,
-    UserFormComponent,
-    UserInsertComponent,
-    CommonInsertComponent,
-    CommonSelectDeleteUpdateComponent,
-    ProvinceComponent,
-    DivisionsSelectComponent,
-    DivisionsSelect2Component
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    AgGridModule.withComponents([])
+    HttpClientModule
   ],
 
   // 所有的组件都可以访问
