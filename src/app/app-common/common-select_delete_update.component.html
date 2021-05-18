@@ -1,6 +1,7 @@
 <p>common-select works!</p>
 <ag-grid-angular #agGrid style="width: 700px; height: 250px;" class="ag-theme-alpine" [rowData]="rowData"
-    [columnDefs]="columnDefs" rowSelection="multiple" [defaultColDef]="defaultColDef">
+    [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" (rowSelected)="onRowSelect($event)"
+    [frameworkComponents]="frameworkComponents">
 </ag-grid-angular>
 <div style="width: 700px; display: flex; justify-content: space-between">
     <button (click)="searchByCondition()"> 檢索</button>

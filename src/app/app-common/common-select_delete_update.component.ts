@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '@app/service/common.service';
 import { PcServiceService } from '@app/service/PcServiceService';
 import { AgGridAngular } from 'ag-grid-angular';
+import { BtnCellRenderer } from './btn-cell-renderer';
 
 @Component({
   selector: 'app-common-select-delete-update',
@@ -12,13 +13,23 @@ export class CommonSelectDeleteUpdateComponent implements OnInit {
 
   rowData!: any;
   defaultColDef!: any;
+  frameworkComponents!: any;
   gridOptions = {
     onRowClicked: (event: any) => console.log('A row was clicked'),
   };
   columnDefs = [
-    { field: 'id', sortable: true, checkboxSelection: true },
+    {headerName : 'Options',cellRenderer : 'buttonRenderer' ,
+    template : `
+    <button type="button" (click)="alertDir($event)">Alert</button>
+    `
+    },
+    { field: 'id'},
+    // { field: 'id', sortable: true, checkboxSelection: true },
     { field: 'nickName' },
-    { field: 'userSex' }
+    { field: 'userSex' },
+    this.frameworkComponents = {
+      btnCellRenderer: BtnCellRenderer
+    }
   ];
   form!: any;
   @ViewChild('agGrid') agGrid!: AgGridAngular;
@@ -86,5 +97,16 @@ export class CommonSelectDeleteUpdateComponent implements OnInit {
         alert(`更新失败`);
       }
     },(error: Error) =>  alert(error.message));
+  }
+
+  onRowSelect(event: { data: any; }) {
+    // console.log(event.data)
+    // alert(event.data)
+  }
+
+  alertDir(event: { data: any; }) {
+    console.log(event.data)
+    alert(event.data)
+    // here I want which row is selected to delete
   }
 }
