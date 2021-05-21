@@ -1,0 +1,11 @@
+.ag-row-hover {
+    /* putting in !important so it overrides the theme's styling as it hovers the row also */
+    background-color: white !important;
+  }
+
+.ag-header {
+    background-color: #A90B7C !important;
+}
+.pagination > input{
+    border: 0;
+}

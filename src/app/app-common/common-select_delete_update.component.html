@@ -1,9 +1,36 @@
-<p>common-select works!</p>
-<ag-grid-angular #agGrid style="width: 700px; height: 250px;" class="ag-theme-alpine" [rowData]="rowData"
+<ag-grid-angular style="width: 700px; height: 250px;" class="ag-theme-alpine" [rowData]="rowData"
     [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" (rowSelected)="onRowSelect($event)"
-    [frameworkComponents]="frameworkComponents">
+    [frameworkComponents]="frameworkComponents" [gridOptions]="gridOptions">
 </ag-grid-angular>
-<div style="width: 700px; display: flex; justify-content: space-between">
+<div class="pagination">
+    <div class="btFirst">
+        <input type="button" value="<<" (click)="onBtFirst">
+    </div>
+    <div class="btNext">
+        <input type="button" value="<">
+    </div>
+    <div>
+        <label>1</label>
+        <label>2</label>
+        <label>3</label>
+        <label>4</label>
+        <label>5</label>
+        <label>6</label>
+    </div>
+    <div>
+        <label>...</label>
+    </div>
+    <div>
+        <label>16</label>
+    </div>
+    <div>
+        <input type="button" value=">">
+    </div>
+    <div>
+        <input type="button" value=">>" (click)="onBtLast">
+    </div>
+</div>
+<div style=" width: 700px; display: flex; justify-content: space-between">
     <button (click)="searchByCondition()"> 檢索</button>
     <button (click)="delSelectedRows()"> 删除</button>
     <button (click)="update()"> 更新</button>
