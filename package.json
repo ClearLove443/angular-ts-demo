@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/core": "^12.0.1",
     "@angular/animations": "~11.2.10",
     "@angular/common": "~11.2.10",
     "@angular/compiler": "~11.2.10",
@@ -23,12 +24,19 @@
     "@ionic/pwa-elements": "^3.0.2",
     "ag-grid-angular": "^25.2.0",
     "ag-grid-community": "^25.2.1",
+    "ansi-colors": "^4.1.1",
+    "jsonc-parser": "^3.0.0",
+    "lru-cache": "^6.0.0",
     "rxjs": "~6.6.0",
+    "semver": "^7.3.5",
+    "sourcemap-codec": "^1.4.8",
+    "symbol-observable": "^4.0.0",
     "tslib": "^2.0.0",
+    "yallist": "^4.0.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.9",
+    "@angular-devkit/build-angular": "^0.1102.13",
     "@angular/cli": "~11.2.9",
     "@angular/compiler-cli": "~11.2.10",
     "@types/jasmine": "~3.6.0",

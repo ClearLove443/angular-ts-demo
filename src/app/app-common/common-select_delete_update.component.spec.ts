@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CommonSelectDeleteUpdateComponent } from './common-select_delete_update.component';
+
 
 describe('CommonSelectDeleteUpdateComponent', () => {
   let component: CommonSelectDeleteUpdateComponent;

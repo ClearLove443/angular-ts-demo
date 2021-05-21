@@ -158,7 +158,7 @@ export class CommonSelectDeleteUpdateComponent implements OnInit {
       } else {
         alert(`更新失败`);
       }
-    },(error: Error) =>  alert(error.message));
+    }, (error: Error) => alert(error.message));
   }
 
   onRowSelect(event: { data: any; }): void {
