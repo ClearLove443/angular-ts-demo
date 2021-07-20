@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { BasePage } from '@acts/front-core';
+import { Component, Injector, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProvinceQuery } from '@app/business/province/queries/province.query';
+import { ProvinceService } from '@app/business/province/services/province.service';
 import { Divisions } from '@app/model/Divisions';
-import { ProvinceService } from '@app/service/province.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-province',
   templateUrl: './province.component.html',
   styleUrls: ['./province.component.css']
 })
-export class ProvinceComponent implements OnInit {
+export class ProvinceComponent extends BasePage implements OnInit, OnDestroy {
   // form!: Province;
   // provinces!: Province[];
   // citys!: City[];
@@ -18,7 +21,28 @@ export class ProvinceComponent implements OnInit {
   param2: Divisions = new Divisions();
   results!: Divisions[];
   currentProduct!: string;
-  constructor(private provinceService: ProvinceService, private route: ActivatedRoute, private router: Router) { }
+
+  // subscriptions
+  public subscriptions: Array<Subscription> = [];
+
+  constructor(
+    public injector: Injector,
+    private provinceService: ProvinceService,
+    private provinceQuery: ProvinceQuery,
+    private route: ActivatedRoute,
+    private router: Router) {
+    super(injector);
+    this.subscriptions = [
+      this.provinceQuery.select('divisions').subscribe(res => {
+        this.results = res;
+      }),
+    ];
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => {
+      subscription.unsubscribe();
+    });
+  }
 
   ngOnInit(): void {
     const provinceCode = this.route.snapshot.paramMap.get('divisions.provinceCode');
@@ -53,11 +77,15 @@ export class ProvinceComponent implements OnInit {
   // }
 
   searchDivisions(): void {
-    this.provinceService.getDivisions(this.param).subscribe(val => {
-      this.results = val;
+    // this.provinceService.getDivisions(this.param).subscribe(val => {
+    //   this.results = val;
+    // });
+    // alert("2")
+    this.provinceService.getDivisions(this.param).subscribe(obs => {
+      // alert(val)
     });
   }
-  provinceClick(provinceCode:any): void {
-    window.open(`divisions/${provinceCode}`,'cityDetail','width=1402,height=685')
+  provinceClick(provinceCode: any): void {
+    window.open(`divisions/${provinceCode}`, 'cityDetail', 'width=1402,height=685');
   }
 }
