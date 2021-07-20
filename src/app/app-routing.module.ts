@@ -8,10 +8,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'divisions',
+    path: 'divisionsSelect',
     loadChildren: () => import('./divisions-select/divisions-select.module').then(m => m.DivisionsSelectModule)
-  },  
-   {
+  },
+  {
     path: 'divisions',
     loadChildren: () => import('./province/province.module').then(m => m.ProvinceModule)
   },
