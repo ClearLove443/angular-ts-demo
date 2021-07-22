@@ -8,7 +8,7 @@ import { map, tap } from 'rxjs/operators';
 })
 export class CommonService {
 
-  private baseUrl: string = 'http://localhost:9090';
+  private baseUrl: string = 'http://192.168.2.10:9090';
   private apiUrl: string = '';
 
   constructor(private http: HttpClient) { }
