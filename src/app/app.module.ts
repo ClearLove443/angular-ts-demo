@@ -1,3 +1,4 @@
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,7 +28,12 @@ import { PcServiceService } from './service/PcServiceService';
   // 所有的组件都可以访问
   // providers: [AddService],
   // bootstrap: [AppComponent, DemoComponent]
-  providers: [CommonService, PcServiceService],
+  providers:
+    [
+      CommonService,
+      PcServiceService,
+      { provide: LocationStrategy, useClass: HashLocationStrategy }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
