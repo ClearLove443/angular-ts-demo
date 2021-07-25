@@ -7,7 +7,7 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProvinceService {
-  private baseUrl: string = 'http://192.168.2.10:9090';
+  private baseUrl: string = 'http://110.40.137.191:9090';
   private apiUrl: string = '';
   constructor(private http: HttpClient) { }
 

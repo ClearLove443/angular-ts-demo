@@ -14,7 +14,7 @@ import { ProvinceStore } from '../store/province.store';
  */
 @Injectable({ providedIn: 'root' })
 export class ProvinceService extends BaseService {
-  private baseUrl: string = 'http://192.168.2.10:9090';
+  private baseUrl: string = 'http://110.40.137.191:9090';
   private apiUrl: string = '';
 
   constructor(

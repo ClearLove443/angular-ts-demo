@@ -140,7 +140,7 @@ export class AppReuseStrategy implements RouteReuseStrategy {
   public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
     const url = this.getFullRouteUrl(route);
     const data = this.getRouteData(route);
-    return data && AppReuseStrategy.routeCache.has(url)
+    return data && AppReuseStrategy.routeCache.get(url)
       ? AppReuseStrategy.routeCache.get(url).handle
       : null;
   }
