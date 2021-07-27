@@ -25,6 +25,8 @@ export class ProvinceComponent extends BasePage implements OnInit, OnDestroy {
   // subscriptions
   public subscriptions: Array<Subscription> = [];
 
+  public loading = this.provinceQuery.selectLoading();
+
   constructor(
     public injector: Injector,
     private provinceService: ProvinceService,

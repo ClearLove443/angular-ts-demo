@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxLoadingModule } from 'ngx-loading';
 import { ProvinceComponent } from './province.component';
-
 
 const routes: Routes = [
   // { path: ':provinceCode', component: ProvinceComponent },
@@ -18,7 +18,8 @@ const routes: Routes = [
   // imports: [ProvinceRoutingModule, RouterModule, CommonModule],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    NgxLoadingModule.forRoot({}),
   ],
   declarations: [
     ProvinceComponent
